@@ -202,7 +202,7 @@ public class TTSServiceMacOS implements TTSService {
      private final HashSet<AudioFormat> getAudioFormats(String container, String codec, String line) {
          HashSet<AudioFormat> audioFormats = new HashSet<AudioFormat>();
 
-         Integer bitRate = new Integer(line.trim());
+         Integer bitRate = new Integer(line);
          AudioFormat audioFormat = new AudioFormat(container, codec, null, null, bitRate, null);
 
          audioFormats.add(audioFormat);
