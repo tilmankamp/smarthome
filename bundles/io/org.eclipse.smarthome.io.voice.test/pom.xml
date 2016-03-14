@@ -18,7 +18,7 @@
 
   <name>Eclipse SmartHome Voice I/O Test</name>
 
-  <packaging>eclipse-test-plugin</packaging>
+  <packaging>eclipse-plugin</packaging>
 
   <build>
     <plugins>
@@ -201,10 +201,6 @@
         <groupId>org.vafer</groupId>
         <artifactId>jdeb</artifactId>
         <version>1.5</version>
-      </plugin>
-      <plugin>
-        <groupId>${tycho-groupid}</groupId>
-        <artifactId>tycho-surefire-plugin</artifactId>
       </plugin>
     </plugins>
 
