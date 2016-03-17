@@ -21,8 +21,8 @@ import org.eclipse.smarthome.io.audio.AudioFormat;
 import org.eclipse.smarthome.io.audio.AudioSource;
 import org.eclipse.smarthome.io.voice.STTException;
 import org.eclipse.smarthome.io.voice.STTListener;
-import org.eclipse.smarthome.io.voice.STTService;
-import org.eclipse.smarthome.io.voice.STTServiceHandle;
+import org.eclipse.smarthome.io.voice.WordspottingService;
+import org.eclipse.smarthome.io.voice.WordspottingServiceHandle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +36,7 @@ import edu.cmu.pocketsphinx.Segment;
  * @author Andre Natal - Initial contribution and API
  *
  */
-public class WordspottingServicePocketsphinx implements STTService {
+public class WordspottingServicePocketsphinx implements WordspottingService {
 
     static {
         System.loadLibrary("pocketsphinx_jni");
@@ -74,11 +74,29 @@ public class WordspottingServicePocketsphinx implements STTService {
     }
 
     /**
-     * {@inheritDoc}
+     * Initializes this.locales
+     *
+     * @return The locales of this instance
      */
+    private final HashSet<Locale> initLocales() {
+        HashSet<Locale> locales = new HashSet<Locale>();
+        return locales;
+    }
+
+    /**
+     * Initializes this.audioFormats
+     *
+     * @return The audio formats of this instance
+     */
+    private final HashSet<AudioFormat> initAudioFormats() {
+        HashSet<AudioFormat> audioFormats = new HashSet<AudioFormat>();
+        return audioFormats;
+    }
+
     @Override
-    public STTServiceHandle recognize(STTListener sttListener, AudioSource audioSource, Locale locale,
-            Set<String> grammars) throws STTException {
+    public WordspottingServiceHandle start(STTListener sttListener, AudioSource audioSource, Locale locale,
+            String keyword) throws STTException {
+        // TODO Auto-generated method stub
 
         /*
          * // Validate arguments
@@ -171,24 +189,10 @@ public class WordspottingServicePocketsphinx implements STTService {
         return null;
     }
 
-    /**
-     * Initializes this.locales
-     *
-     * @return The locales of this instance
-     */
-    private final HashSet<Locale> initLocales() {
-        HashSet<Locale> locales = new HashSet<Locale>();
-        return locales;
-    }
+    @Override
+    public void resume() {
+        // TODO Auto-generated method stub
 
-    /**
-     * Initializes this.audioFormats
-     *
-     * @return The audio formats of this instance
-     */
-    private final HashSet<AudioFormat> initAudioFormats() {
-        HashSet<AudioFormat> audioFormats = new HashSet<AudioFormat>();
-        return audioFormats;
     }
 
 }
