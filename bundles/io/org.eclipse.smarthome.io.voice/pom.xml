@@ -23,6 +23,27 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+          <execution>
+           <id>pocketsphinx-install</id>
+           <phase>validate</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>bash</executable>
+          <arguments>
+            <argument>setup_pocketsphinx.sh</argument>
+          </arguments>
+          <workingDirectory>${session.executionRootDirectory}</workingDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>com.savage7.maven.plugins</groupId>
         <artifactId>maven-external-dependency-plugin</artifactId>
         <configuration>
