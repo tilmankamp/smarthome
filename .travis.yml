@@ -9,7 +9,7 @@ before_script:
 - export PROJECTS="--projects !bundles/automation/org.eclipse.smarthome.automation.module.script.test/pom.xml"
 
 script:
-- MAVEN_SKIP_RC=true apache-maven-3.3.9/bin/mvn install -fae -B $PROJECTS 2>&1 | ./filter.py
+- MAVEN_SKIP_RC=true apache-maven-3.3.9/bin/mvn install -fae -B $PROJECTS 2>&1 | ./filter.py ; test ${PIPESTATUS[0]} -eq 0
 
 addons:
   apt:
