@@ -1,6 +1,3 @@
 [submodule "bundles/io/org.eclipse.smarthome.io.voice/pocketsphinx/pocketsphinx"]
 	path = bundles/io/org.eclipse.smarthome.io.voice/pocketsphinx/pocketsphinx
 	url = https://github.com/mozilla/pocketsphinx
-[submodule "bundles/io/org.eclipse.smarthome.io.voice/pocketsphinx/sphinxbase"]
-	path = bundles/io/org.eclipse.smarthome.io.voice/pocketsphinx/sphinxbase
-	url = https://github.com/mozilla/sphinxbase
